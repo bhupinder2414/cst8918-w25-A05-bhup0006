@@ -126,5 +126,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
     public_key = file("~/.ssh/id_rsa.pub")
   }
 
-  custom_data = data.cloudinit_config.web_config.rendered
+  custom_data = base64encode(data.cloudinit_config.web_config.rendered)
 }
